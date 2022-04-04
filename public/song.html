@@ -172,7 +172,7 @@
 
 <body>
     <h1>LYRICAL</h1>
-    <form onkeydown="event.key != 'Enter';">
+    <form>
         <input type="text" id="input" />
         <!-- <div id="magic"></div> -->
         <button id="reset">RESET</button>
@@ -189,6 +189,10 @@
         if (!localStorage.getItem('lyrical')) {
             window.location.href = '/'
         }
+
+        document.querySelector('form').addEventListener('keypress', (e) => {
+            if (e.keyCode == 13) {e.preventDefault()}
+        })
 
         const { lyrics } = JSON.parse(localStorage.getItem('lyrical'))
         const modal = document.getElementById('modal')
