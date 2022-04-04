@@ -125,7 +125,7 @@
 <body>
     <h1>LYRICAL</h1>
     <form>
-        <textarea autocomplete="off" type="text" id="search-input" placeholder="lyrics..."></textarea>
+        <textarea autocomplete="off" type="text" id="search-input" placeholder="Lyrics..."></textarea>
         <input type="submit" value="LEARN" id="submit-btn" />
     </form>
     <script>
@@ -145,14 +145,13 @@
             const baseUrl = 'http://localhost:8383/'
             const lyrics = JSON.stringify({ lyrics: text.value.toLowerCase() })
             try {
-                const res = await fetch(baseUrl, {
+                const res = await fetch('/', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: lyrics
                 })
-                console.log(res)
 
                 //save to local storage
                 localStorage.setItem('lyrical', lyrics)
